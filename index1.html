@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #5c6bc0;
+            --accent-color: #ff7043;
+        }
+
+        body {
+            background-color: #f5f5f5;
+        }
+
+        .sidebar {
+            background-color: #273f43;
+            height: 100vh;
+            padding: 20px;
+            position: fixed;
+            width: 250px;
+            z-index: 1000;
+        }
+
+        .main-content {
+            margin-left: 250px;
+            padding: 20px;
+        }
+
+        .nav-link {
+            color: whitesmoke;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+        }
+
+        .nav-link:hover {
+            background-color: var(--primary-color);
+            color: white;
+            /* transform: translateX(2px); */
+        }
+
+        /* .nav-link.active {
+            background-color: var(--primary-color);
+            color: white;
+        } */
+
+        .dashboard-card {
+            background: white;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            height: 100%;
+        }
+
+        .icon-circle {
+            background-color: var(--accent-color);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: auto;
+        }
+
+        .up-arrow {
+            color: #4caf50;
+            font-size: 14px;
+        }
+
+        .leave-balance {
+            color: #666;
+            font-size: 12px;
+        }
+
+        .logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px 0;
+        }
+
+        .logo img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .user-name {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
+            .main-content {
+                margin-left: 0;
+            }
+            .logo img {
+                width: 120px;
+                height: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="d-flex">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo mb-4">
+                <img src="images/Cybromatech-logo.jpg" alt="Company Logo" class="img-fluid" style="max-width: 150px; height: auto;">
+            </div>
+            <nav class="nav flex-column">
+                <a class="nav-link active" href="#"><i class="fas fa-tachometer-alt me-2"></i> Dashboard</a>
+                <a class="nav-link" href="#"><i class="fas fa-user me-2"></i> Profile</a>
+                <a class="nav-link" href="#"><i class="fas fa-file-invoice-dollar me-2"></i> PaySlip</a>
+                <a class="nav-link" href="#"><i class="fas fa-paper-plane me-2"></i> Leave Application</a>
+                <a class="nav-link" href="#"><i class="fas fa-clock me-2"></i> Leave Status</a>
+                <a class="nav-link" href="#"><i class="fas fa-sign-out-alt me-2"></i> Resignation</a>
+                <a class="nav-link" href="#"><i class="fas fa-user-plus me-2"></i> New Joinee</a>
+                <a class="nav-link" href="#"><i class="fas fa-calendar me-2"></i> Holiday List</a>
+                <a class="nav-link" href="#"><i class="fas fa-key me-2"></i> Change Password</a>
+                <a class="nav-link" href="#"><i class="fas fa-sign-out-alt me-2"></i> Logout</a>
+            </nav>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h1>Dashboard</h1>
+                <span class="user-name">Welcome,<br></span>
+            </div>
+            
+            <div class="row g-4">
+                <!-- Name Card -->
+                <div class="col-md-3">
+                    <div class="dashboard-card">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <small>NAME</small>
+                                <h5></h5>
+                                <span class="up-arrow"><i class="fas fa-arrow-up"></i></span>
+                            </div>
+                            <div class="icon-circle">
+                                <i class="fas fa-user"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Employment Type -->
+                <div class="col-md-3">
+                    <div class="dashboard-card">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <small>EMPLOYMENT TYPE</small>
+                                <h5>Contract</h5>
+                                <span class="up-arrow"><i class="fas fa-arrow-up"></i></span>
+                            </div>
+                            <div class="icon-circle">
+                                <i class="fas fa-briefcase"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reporting To -->
+                <div class="col-md-3">
+                    <div class="dashboard-card">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <small>REPORTING TO</small>
+                                <h5>Manager</h5>
+                                <span class="up-arrow"><i class="fas fa-arrow-up"></i></span>
+                            </div>
+                            <div class="icon-circle">
+                                <i class="fas fa-user-tie"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Birthday -->
+                <div class="col-md-3">
+                    <div class="dashboard-card">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <small>BIRTHDAY</small>
+                                <h5>0/01/1994</h5>
+                                <span class="up-arrow"><i class="fas fa-arrow-up"></i></span>
+                            </div>
+                            <div class="icon-circle">
+                                <i class="fas fa-birthday-cake"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Leave Cards -->
+                <div class="col-md-3">
+                    <div class="dashboard-card">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <small>CASUAL LEAVE</small>
+                                <h5>11</h5>
+                                <span class="leave-balance">Leave Balance</span>
+                            </div>
+                            <div class="icon-circle">
+                                <i class="fas fa-umbrella-beach"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="dashboard-card">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <small>EARNED LEAVES</small>
+                                <h5>0</h5>
+                                <span class="leave-balance">Leave Balance</span>
+                            </div>
+                            <div class="icon-circle">
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="dashboard-card">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <small>SICK LEAVE</small>
+                                <h5>0</h5>
+                                <span class="leave-balance">Leave Balance</span>
+                            </div>
+                            <div class="icon-circle">
+                                <i class="fas fa-medkit"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="dashboard-card">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <small>MARRIAGE LEAVE</small>
+                                <h5>4</h5>
+                                <span class="leave-balance">Leave Balance</span>
+                            </div>
+                            <div class="icon-circle">
+                                <i class="fas fa-ring"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bottom Cards -->
+                <div class="col-md-4">
+                    <div class="dashboard-card">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <small>Today's Birthdays</small>
+                                <div id="todayBirthdays">No birthdays today</div>
+                            </div>
+                            <div class="icon-circle">
+                                <i class="fas fa-gift"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="dashboard-card">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <small>Today's Work Anniversary</small>
+                                <div id="workAnniversary">No work anniversaries today</div>
+                            </div>
+                            <div class="icon-circle">
+                                <i class="fas fa-building"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="dashboard-card">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <small>Today's Quote</small>
+                                <div id="dailyQuote">Loading quote...</div>
+                            </div>
+                            <div class="icon-circle">
+                                <i class="fas fa-quote-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="dashboard-card">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <small>Announcements</small>
+                                <div id="dailyQuote">Loading ...</div>
+                            </div>
+                            <div class="icon-circle">
+                                <i class="fa-solid fa-bullhorn"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Sample quotes array
+        const quotes = [
+            "Success is not final, failure is not fatal: it is the courage to continue that counts.",
+            "The only way to do great work is to love what you do.",
+            "Innovation distinguishes between a leader and a follower.",
+            "The future depends on what you do today."
+        ];
+
+        // Update daily quote
+        function updateDailyQuote() {
+            const quoteElement = document.getElementById('dailyQuote');
+            const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+            quoteElement.textContent = randomQuote;
+        }
+        
+
+        // Initialize the dashboard
+        document.addEventListener('DOMContentLoaded', function() {
+            updateDailyQuote();
+
+            // Add click event listeners to nav links
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
