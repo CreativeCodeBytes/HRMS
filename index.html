@@ -3,536 +3,210 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Employee Dashboard</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    <title>Admin Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+   
+    
+    
     <style>
-        :root {
-            --primary-color: #5c6bc0;
-            --accent-color: #ff7043;
-        }
-
         body {
-            background-color: #f5f5f5;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
         }
 
-        .sidebar {
-            background-color: #273f43;
-            height: 100vh;
-            padding: 20px;
-            position: fixed;
-            width: 250px;
-            z-index: 1000;
-            transition: all 0.3s;
-            left: 0;
-        }
-
-        #dash {
-            color: #0e0e0e;
-            font-weight: bolder;
-            text-decoration: underline;
-            font-family: 'Times New Roman', Times, serif;
-        }
-
-        .main-content {
-            margin-left: 250px;
-            padding: 20px;
-            transition: all 0.3s;
-        }
-
-        #clockInOutCard {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 10px;
-            border-radius: 10px;
-        }
-
-        #clockInOutBtn {
+        .main-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color:rgb(187, 186, 186);
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 1200px;
             width: 100%;
-            padding: 10px;
-            font-size: 1.2em;
-            font-weight: bold;
+            padding: 2rem;
+            overflow: hidden;
         }
 
-        #clockStatus, #timer {
-            font-size: 1.1em;
-            margin-top: 5px;
-        }
-
-        .nav-link {
-            color: whitesmoke;
-            padding: 10px;
-            margin: 5px 0;
-            border-radius: 5px;
-        }
-
-        .nav-link:hover {
-            background-color: var(--primary-color);
-            color: white;
-        }
-
-        .dashboard-card {
-            background: white;
-            border-radius: 10px;
-            padding: 15px;
-            margin-bottom: 20px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            height: 100%;
-        }
-
-        .icon-circle {
-            background-color: var(--accent-color);
-            color: white;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-left: auto;
-        }
-
-        .up-arrow {
-            color: #4caf50;
-            font-size: 14px;
-        }
-
-        .leave-balance {
-            color: #666;
-            font-size: 12px;
-        }
-
-        .logo {
+        /* Left Image Section */
+        .interactive-image {
+            flex: 1;
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 10px 0;
         }
 
-        .logo img {
-            max-width: 100%;
-            height: auto;
+        .interactive-image img {
+            max-width: 80%;
+            border-radius: 8px;
         }
 
-        .user-name {
-            font-weight: bold;
-            font-family: cursive;
-            color: var(--primary-color);
+        /* Right Login Form Section */
+        .container {
+            flex: 1;
+            padding: 2rem;
+            max-width: 450px;
         }
 
-        #sidebarToggle {
+        .help-text {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        .icon-container {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .admin-icon {
+            font-size: 3rem;
+            color: rgb(241, 97, 45);
+        }
+
+        .login-heading {
+            color: #333;
+            text-align: center;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+
+        .login-form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #555;
+            font-size: 1rem;
+        }
+
+        input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            box-sizing: border-box;
+        }
+
+        .forgot-password {
+            text-align: right;
+            margin-bottom: 1rem;
+        }
+
+        .forgot-password a {
+            color: #a31010;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .forgot-password a:hover {
+            text-decoration: underline;
+        }
+
+        .login-button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 0.75rem;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .login-button:hover {
+            background-color: #0056b3;
+        }
+
+        .error-message {
+            color: #e74c3c;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
             display: none;
-            position: fixed;
-            top: 10px;
-            left: 10px;
-            z-index: 1001;
         }
 
-        @media (max-width: 991px) {
-            .sidebar {
-                left: -250px;
+        /* Responsive Design */
+        @media only screen and (max-width: 768px) {
+            .main-container {
+                flex-direction: column;
+                align-items: center;
             }
 
-            .main-content {
-                margin-left: 0;
-            }
-
-            #sidebarToggle {
-                display: block;
-            }
-
-            .sidebar.active {
-                left: 0;
-            }
-
-            .main-content.active {
-                margin-left: 250px;
-            }
-        }
-
-        @media (max-width: 767px) {
-            .dashboard-card {
-                margin-bottom: 15px;
-            }
-
-            .main-content {
-                padding: 10px;
-            }
-
-            #dash {
-                font-size: 1.5rem;
-            }
-
-            .user-name {
-                font-size: 0.9rem;
-            }
-
-            .main-content.active {
-                margin-left: 0;
-            }
-        }
-
-        @media (max-width: 575px) {
-            .logo img {
-                width: 120px;
-                height: 40px;
-            }
-
-            #clockInOutBtn {
-                font-size: 1em;
-            }
-
-            #clockStatus, #timer {
-                font-size: 0.9em;
+            .interactive-image {
+                margin-bottom: 1.5rem;
             }
         }
     </style>
 </head>
 <body>
-    <button id="sidebarToggle" class="btn btn-primary">
-        <i class="fas fa-bars"></i>
-    </button>
-
-    <div class="d-flex">
-        <!-- Sidebar -->
-        <div class="sidebar">
-            <div class="logo mb-4">
-                <img src="images/Cybromatech-logo.jpg" alt="Company Logo" class="img-fluid" style="max-width: 150px; height: auto;">
-            </div>
-            <nav class="nav flex-column">
-                <a class="nav-link active" href="#"><i class="fas fa-tachometer-alt me-2"></i> Dashboard</a>
-                <a class="nav-link" href="#"><i class="fas fa-user me-2"></i> Profile</a>
-                <a class="nav-link" href="#"><i class="fa-solid fa-indian-rupee-sign me-2"></i> PaySlip</a>
-                <a class="nav-link" href="#"><i class="fas fa-paper-plane me-2"></i> Leave Application</a>
-                <a class="nav-link" href="#"><i class="fas fa-clock me-2"></i> Leave Status</a>
-                <a class="nav-link" href="#"><i class="fas fa-sign-out-alt me-2"></i> Resignation</a>
-                <a class="nav-link" href="#"><i class="fas fa-user-plus me-2"></i> New Joinee</a>
-                <a class="nav-link" href="#"><i class="fas fa-calendar me-2"></i> Holiday List</a>
-                <a class="nav-link" href="#"><i class="fas fa-key me-2"></i> Change Password</a>
-                <a class="nav-link" href="#"><i class="fas fa-sign-out-alt me-2"></i> Logout</a>
-            </nav>
+    <div class="main-container">
+        <!-- Interactive Image Section -->
+        <div class="interactive-image">
+            <img src="login3.avif" alt="Interactive Image">
         </div>
 
-        <!-- Main Content -->
-        <div class="main-content">
-            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center mb-4">
-                <div class="mb-3 mb-md-0">
-                    <div id="clockInOutCard" class="mt-2">
-                        <button id="clockInOutBtn" class="btn btn-success">Clock In</button>
-                        <p id="clockStatus" class="mt-2 mb-0">You are currently clocked out.</p>
-                        <p id="timer" class="mb-0">00:00:00</p>
-                    </div>
-                </div>
-                <h1 id="dash" class="mb-3 mb-md-0">Dashboard</h1>
-                <div class="user-name">Welcome, Manoj Vikas Raut</div>
+        <!-- Login Form Section -->
+        <div class="container">
+            <div class="help-text">Sign in </div>
+            <div class="icon-container">
+                <i class="fas fa-user-shield admin-icon"></i>
             </div>
-            
-            <div class="row g-4">
-                <!-- Name Card -->
-                <div class="col-sm-6 col-md-4 col-lg-3">
-                    <div class="dashboard-card">
-                        <div class="d-flex justify-content-between align-items-start">
-                            <div>
-                                <small>NAME</small>
-                                <h5>Manoj Vikas Raut</h5>
-                                <span class="up-arrow"><i class="fas fa-arrow-up"></i></span>
-                            </div>
-                            <div class="icon-circle">
-                                <i class="fas fa-user"></i>
-                            </div>
-                        </div>
-                    </div>
+            <h1 class="login-heading">LOG IN</h1>
+            <form class="login-form" id="loginForm">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required>
                 </div>
-                
-                <!-- Employment Type -->
-                <div class="col-sm-6 col-md-4 col-lg-3">
-                    <div class="dashboard-card">
-                        <div class="d-flex justify-content-between align-items-start">
-                            <div>
-                                <small>EMPLOYMENT TYPE</small>
-                                <h5>Contract</h5>
-                                <span class="up-arrow"><i class="fas fa-arrow-up"></i></span>
-                            </div>
-                            <div class="icon-circle">
-                                <i class="fas fa-briefcase"></i>
-                            </div>
-                        </div>
-                    </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
                 </div>
-
-                <!-- Reporting To -->
-                <div class="col-sm-6 col-md-4 col-lg-3">
-                    <div class="dashboard-card">
-                        <div class="d-flex justify-content-between align-items-start">
-                            <div>
-                                <small>REPORTING TO</small>
-                                <h5>Manager</h5>
-                                <span class="up-arrow"><i class="fas fa-arrow-up"></i></span>
-                            </div>
-                            <div class="icon-circle">
-                                <i class="fas fa-user-tie"></i>
-                            </div>
-                        </div>
-                    </div>
+                <div class="error-message" id="errorMessage"></div>
+                <div class="forgot-password">
+                    <a href="#">Forgot Password?</a>
                 </div>
-
-                <!-- Birthday -->
-                <div class="col-sm-6 col-md-4 col-lg-3">
-                    <div class="dashboard-card">
-                        <div class="d-flex justify-content-between align-items-start">
-                            <div>
-                                <small>BIRTHDAY</small>
-                                <h5>01/01/1994</h5>
-                                <span class="up-arrow"><i class="fas fa-arrow-up"></i></span>
-                            </div>
-                            <div class="icon-circle">
-                                <i class="fas fa-birthday-cake"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Leave Cards -->
-                <div class="col-sm-6 col-md-4 col-lg-3">
-                    <div class="dashboard-card">
-                        <div class="d-flex justify-content-between align-items-start">
-                            <div>
-                                <small>CASUAL LEAVE</small>
-                                <h5>11</h5>
-                                <span class="leave-balance">Leave Balance</span>
-                            </div>
-                            <div class="icon-circle">
-                                <i class="fas fa-umbrella-beach"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-6 col-md-4 col-lg-3">
-                    <div class="dashboard-card">
-                        <div class="d-flex justify-content-between align-items-start">
-                            <div>
-                                <small>EARNED LEAVES</small>
-                                <h5>0</h5>
-                                <span class="leave-balance">Leave Balance</span>
-                            </div>
-                            <div class="icon-circle">
-                                <i class="fas fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-6 col-md-4 col-lg-3">
-                    <div class="dashboard-card">
-                        <div class="d-flex justify-content-between align-items-start">
-                            <div>
-                                <small>SICK LEAVE</small>
-                                <h5>0</h5>
-                                <span class="leave-balance">Leave Balance</span>
-                            </div>
-                            <div class="icon-circle">
-                                <i class="fas fa-medkit"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-6 col-md-4 col-lg-3">
-                    <div class="dashboard-card">
-                        <div class="d-flex justify-content-between align-items-start">
-                            <div>
-                                <small>MARRIAGE LEAVE</small>
-                                <h5>4</h5>
-                                <span class="leave-balance">Leave Balance</span>
-                            </div>
-                            <div class="icon-circle">
-                                <i class="fas fa-ring"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Bottom Cards -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="dashboard-card">
-                        <div class="d-flex justify-content-between align-items-start">
-                            <div>
-                                <small>Today's Birthdays</small>
-                                <div id="todayBirthdays">No birthdays today</div>
-                            </div>
-                            <div class="icon-circle">
-                                <i class="fas fa-gift"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-4">
-                    <div class="dashboard-card">
-                        <div class="d-flex justify-content-between align-items-start">
-                            <div>
-                                <small>Today's Work Anniversary</small>
-                                <div id="workAnniversary">No work anniversaries today</div>
-                            </div>
-                            <div class="icon-circle">
-                                <i class="fas fa-building"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-4">
-                    <div class="dashboard-card">
-                        <div class="d-flex justify-content-between align-items-start">
-                            <div>
-                                <small>Today's Quote</small>
-                                <div id="dailyQuote">Loading quote...</div>
-                            </div>
-                            <div class="icon-circle">
-                                <i class="fas fa-quote-right"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-4">
-                    <div class="dashboard-card">
-                        <div class="d-flex justify-content-between align-items-start">
-                            <div>
-                                <small>Announcements</small>
-                                <div id="announcements">Loading ...</div>
-                            </div>
-                            <div class="icon-circle">
-                                <i class="fa-solid fa-bullhorn"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                <button type="submit" class="login-button">Sign In</button>
+            </form>
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Sample quotes array
-        const quotes = [
-            "Success is not final, failure is not fatal: it is the courage to continue that counts.",
-            "The only way to do great work is to love what you do.",
-            "Innovation distinguishes between a leader and a follower.",
-            "The future depends on what you do today."
-        ];
-
-        // Update daily quote
-        function updateDailyQuote() {
-            const quoteElement = document.getElementById('dailyQuote');
-            const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
-            quoteElement.textContent = randomQuote;
-        }
-
-        // Clock In/Out Functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const clockInOutBtn = document.getElementById('clockInOutBtn');
-            const clockStatus = document.getElementById('clockStatus');
-            const timerElement = document.getElementById('timer');
-            let isClockedIn = false;
-            let clockInTime;
-            let timerInterval;
-
-            clockInOutBtn.addEventListener('click', function() {
-                if (!isClockedIn) {
-                    // Clock In
-                    isClockedIn = true;
-                    clockInTime = new Date();
-                    clockInOutBtn.textContent = 'Clock Out';
-                    clockStatus.textContent = `Clocked in at ${formatTime(clockInTime)}`;
-                    clockInOutBtn.classList.remove('btn-success');
-                    clockInOutBtn.classList.add('btn-danger');
-                    startTimer();
-                } else {
-                    // Clock Out
-                    isClockedIn = false;
-                    const clockOutTime = new Date();
-                    const duration = calculateDuration(clockInTime, clockOutTime);
-                    clockInOutBtn.textContent = 'Clock In';
-                    clockStatus.textContent = `Clocked out at ${formatTime(clockOutTime)}. Duration: ${duration}`;
-                    clockInOutBtn.classList.remove('btn-danger');
-                    clockInOutBtn.classList.add('btn-success');
-                    stopTimer();
-                }
-            });
-
-            function formatTime(date) {
-                return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-            }
-
-            function calculateDuration(start, end) {
-                const diff = end - start; // difference in milliseconds
-                const hours = Math.floor(diff / 3600000);
-                const minutes = Math.floor((diff % 3600000) / 60000);
-                const seconds = Math.floor((diff % 60000) / 1000);
-                return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-            }
-
-            function startTimer() {
-                let seconds = 0;
-                timerInterval = setInterval(() => {
-                    seconds++;
-                    const hours = Math.floor(seconds / 3600);
-                    const minutes = Math.floor((seconds % 3600) / 60);
-                    const remainingSeconds = seconds % 60;
-                    timerElement.textContent = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
-                }, 1000);
-            }
-
-            function stopTimer() {
-                clearInterval(timerInterval);
-                timerElement.textContent = '00:00:00';
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const errorMessage = document.getElementById('errorMessage');
+            
+            if (username === 'admin' && password === 'admin123') {
+                errorMessage.style.display = 'none';
+                alert('Login successful! Redirecting to admin dashboard...');
+                window.location.href = 'Dashboard.html';
+            } else {
+                errorMessage.textContent = 'Invalid username or password. Please try again.';
+                errorMessage.style.display = 'block';
             }
         });
+    </script> 
 
-        // Initialize the dashboard
-        document.addEventListener('DOMContentLoaded', function() {
-            updateDailyQuote();
 
-            // Add click event listeners to nav links
-            document.querySelectorAll('.nav-link').forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
-                    this.classList.add('active');
-                });
-            });
 
-            // Sidebar toggle functionality
-            const sidebarToggle = document.getElementById('sidebarToggle');
-            const sidebar = document.querySelector('.sidebar');
-            const mainContent = document.querySelector('.main-content');
-
-            sidebarToggle.addEventListener('click', function() {
-                sidebar.classList.toggle('active');
-                mainContent.classList.toggle('active');
-            });
-
-            // Close sidebar when clicking outside on small screens
-            document.addEventListener('click', function(event) {
-                const isClickInsideSidebar = sidebar.contains(event.target);
-                const isClickOnToggleButton = sidebarToggle.contains(event.target);
-
-                if (!isClickInsideSidebar && !isClickOnToggleButton && window.innerWidth <= 991) {
-                    sidebar.classList.remove('active');
-                    mainContent.classList.remove('active');
-                }
-            });
-
-            // Adjust layout on window resize
-            window.addEventListener('resize', function() {
-                if (window.innerWidth > 991) {
-                    sidebar.classList.remove('active');
-                    mainContent.classList.remove('active');
-                }
-            });
-        });
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- <script src="admin.js"></script> -->
 </body>
 </html>
