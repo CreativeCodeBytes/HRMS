@@ -200,7 +200,7 @@
                 <img src="images/logo.png" alt="Company Logo" class="img-fluid" style="max-width: 150px; height: auto;">
             </div>
             <nav class="nav flex-column">
-                <a class="nav-link active" href="#"><i class="fas fa-tachometer-alt me-2"></i> Dashboard</a>
+                <a class="nav-link active" href="Dashboard.html"><i class="fas fa-tachometer-alt me-2"></i> Dashboard</a>
                 <a class="nav-link" href="#"><i class="fas fa-user me-2"></i> Profile</a>
                 <a class="nav-link" href="#"><i class="fa-solid fa-indian-rupee-sign me-2"></i> PaySlip</a>
                 <a class="nav-link" href="#"><i class="fas fa-paper-plane me-2"></i> Leave Application</a>
@@ -209,7 +209,7 @@
                 <a class="nav-link" href="#"><i class="fas fa-user-plus me-2"></i> New Joinee</a>
                 <a class="nav-link" href="#"><i class="fas fa-calendar me-2"></i> Holiday List</a>
                 <a class="nav-link" href="#"><i class="fas fa-key me-2"></i> Change Password</a>
-                <a class="nav-link" href="index.html"><i class="fas fa-sign-out-alt me-2"></i> Logout</a>
+                <a class="nav-link" href="index.html" id="logoutLink"><i class="fas fa-sign-out-alt me-2"></i> Logout</a>
             </nav>
         </div>
 
@@ -531,6 +531,13 @@
                     sidebar.classList.remove('active');
                     mainContent.classList.remove('active');
                 }
+            });
+
+            // Add click event listener for the logout link
+            const logoutLink = document.getElementById('logoutLink');
+            logoutLink.addEventListener('click', function(e) {
+                e.preventDefault(); // Prevent the default link behavior
+                window.location.href = this.getAttribute('href'); // Redirect to the href attribute value
             });
         });
     </script>
